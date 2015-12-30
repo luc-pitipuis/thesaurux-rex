@@ -48,7 +48,7 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.10.0)
+    coffee-script-source (1.8.0)
     columnize (0.9.0)
     concurrent-ruby (1.0.0)
     debugger-linecache (1.2.0)
@@ -150,6 +150,7 @@ PLATFORMS
 DEPENDENCIES
   byebug (= 3.4.0)
   coffee-rails (= 4.1.0)
+  coffee-script-source (= 1.8.0)
   jbuilder (= 2.2.3)
   jquery-rails (= 4.0.3)
   pg (= 0.17.1)
