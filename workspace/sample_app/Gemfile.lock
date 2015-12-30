@@ -323,6 +323,7 @@ GEM
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
     will_paginate (3.0.7)
+    win32console (1.3.2)
     xml-simple (1.1.5)
 
 PLATFORMS
@@ -357,3 +358,4 @@ DEPENDENCIES
   uglifier (= 2.5.3)
   web-console (= 2.2.1)
   will_paginate (= 3.0.7)
+  win32console (= 1.3.2)
