@@ -1,0 +1,33 @@
+<%= link_to 'Home', '/' %>
+
+<h1>Search result for "<%= @keyword %>"</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Full account</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @accounts.each do |account| %>
+      <tr>
+        <td><%= account[:samaccountname] %></td>
+        <td>
+          <%= form_tag(account_unlock_path(account[:samaccountname])) do %>
+            <% if account[:locked] %>
+              <%= submit_tag('Unlock') %>
+            <% else %>
+              <%= submit_tag('Not locked', disabled: true) %>
+            <% end %>
+          <% end %>
+
+          <%= form_tag(account_unlock_path(account[:samaccountname])) do %>
+            <%= submit_tag('Reset Password') %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

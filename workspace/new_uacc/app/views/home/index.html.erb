@@ -1,0 +1,9 @@
+<h1>Home</h1>
+
+Search by samaccountname or displayname
+
+<%= form_tag('/search', method: :get) do %>
+  <%= text_field_tag(:search_term, '', placeholder: 'Fill in search term') %>
+  <%= submit_tag(:find) %>
+<% end %>
+
