@@ -9,6 +9,7 @@
   <% @posts.each do |post| %>
     <li>
       <%= post.content %> by <%= post.user.email %>
+      <%= link_to post.book.url %>
     </li>
   <% end %>
 </ul>

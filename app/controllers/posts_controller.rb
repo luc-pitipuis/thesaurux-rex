@@ -5,6 +5,8 @@ class PostsController < ApplicationController
   
   def show
     @posts = Post.find(params[:id])
+    puts @posts.metadata.inspect
+    puts @posts.metadata.to_yaml
   end 
   
   def create
@@ -13,7 +15,7 @@ class PostsController < ApplicationController
       flash[:success] = "post created!"
       redirect_to root_url
     else
-      render 'static_pages/home'
+      redirect_to root_url
     end
   end
 
@@ -23,7 +25,7 @@ class PostsController < ApplicationController
   private
 
     def post_params
-      params.require(:post).permit(:content)
+      params.require(:post).permit(:content, :book)
     end
 
 end

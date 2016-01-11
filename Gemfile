@@ -22,6 +22,12 @@ gem 'coffee-script-source', '1.8.0'
 # authentication
 gem 'devise'
 
+# file upload
+gem 'paperclip'
+
+# epub parser for metadata
+gem 'epub-parser', '~> 0.2.5'
+
 group :development, :test do
   gem 'sqlite3',     '1.3.11'
   gem 'byebug',      '3.4.0'
