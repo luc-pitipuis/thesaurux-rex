@@ -1,13 +1,11 @@
 class StaticPagesController < ApplicationController
   before_action :authenticate_user!
   def home
-    #@posts = @Post.paginate(page: params[:page])
     @post = current_user.posts.build
-    @posts = current_user.posts.all
+    @posts = current_user.posts.paginate(page: params[:page])
   end
 
   def help
-  
   end
   
   def about
