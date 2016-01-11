@@ -1,0 +1,14 @@
+<% provide(:title, 'All posts') %>
+<h1>All posts</h1>
+
+
+ <div class="col-md-8">
+    <% if @user.posts.any? %>
+      <h3>Post (<%= @user.posts.count %>)</h3>
+      <ol class="posts">
+        <%= render @posts %>
+      </ol>
+      <%= will_paginate @posts %>
+    <% end %>
+  </div>
+
