@@ -1,12 +1,11 @@
 <%= form_for @post, url: posts_path, html: { multipart: true } do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
+<%= render 'shared/error_messages', object: f.object %>
 <div class="row">
     <div class="col-md-7">
         <div class="panel panel-default">
             <div class="panel-heading"><strong>Share epub book</strong> <small> </small></div>
             <div class="panel-body">
-            <%= f.text_area :content, placeholder: "Add new book description" %>
-            <div class="input-group image-preview">
+              <div class="input-group image-preview">
                     <input placeholder="" type="text" class="form-control image-preview-filename" disabled="disabled">
                     <!-- don't give a name === doesn't send on POST/GET --> 
                     <span class="input-group-btn"> 
@@ -17,12 +16,13 @@
                         <%= f.file_field :book %>
                         <!-- rename it --> 
                     </div>
-                    <input type="submit" name="commit" value="Post" class="btn btn-labeled btn-default">
-                    <button type="button" class="btn btn-labeled btn-default"> <span class="btn-label"><i class="glyphicon glyphicon-upload"></i> </span>Upload</button>
-                    </span> </div>
+
+                    <%= button_tag type: 'submit', class: "btn btn-labeled btn-default"  do %>
+                    <span class="btn-label"><i class="glyphicon glyphicon-upload"></i> </span>Upload
+                    <% end %>
+               </div>
             </div>
         </div>
     </div>
  </div>
-      <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>

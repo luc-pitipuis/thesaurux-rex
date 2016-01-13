@@ -5,9 +5,7 @@ class PostsController < ApplicationController
   end
   
   def show
-    @posts = Post.find(params[:id])
-    puts @posts.metadata.inspect
-    puts @posts.metadata.to_yaml
+    @post = Post.find(params[:id])
   end 
   
   def create
@@ -26,7 +24,7 @@ class PostsController < ApplicationController
   private
 
     def post_params
-      params.require(:post).permit(:content, :book)
+      params.require(:post).permit(:book)
     end
 
 end

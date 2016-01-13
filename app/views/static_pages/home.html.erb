@@ -1,15 +1,9 @@
-
-      <section class="post_form">
-        <%= render 'shared/post_form' %>
-      </section>
+  <%= render 'shared/post_form' %>
   <% @posts.each do |post| %>
   <div class="well">
       <div class="media">
-  		<a class="pull-left" href="<%= link_to post.book.url %>">
-    		<img class="media-object" src="http://placekitten.com/150/150">
-  		</a>
   		<div class="media-body">
-    		<h4 class="media-heading">Receta 2</h4>
+    		<h4 class="media-heading"><%= link_to post.display_name, post %></h4>
           <p class="text-right">By <%= post.user.email %></p>
           <p><%= post.content %></p>
           <ul class="list-inline list-unstyled">
