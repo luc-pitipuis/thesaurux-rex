@@ -82,6 +82,7 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise-bootstrap-views (0.0.7)
     epub-parser (0.2.5)
       addressable (>= 2.3.5)
       archive-zip
@@ -371,6 +372,7 @@ DEPENDENCIES
   coffee-rails (= 4.1.0)
   coffee-script-source (= 1.8.0)
   devise
+  devise-bootstrap-views
   epub-parser (~> 0.2.5)
   faker (= 1.4.2)
   fog (= 1.36.0)

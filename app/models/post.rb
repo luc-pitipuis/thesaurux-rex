@@ -15,9 +15,9 @@ class Post < ActiveRecord::Base
     @display_name ||= if metadata?
       title = metadata.title 
       authors = metadata.creators
-      title.present? ? [title, authors].compact.join(' - ').force_encoding('UTF-8') : upload_file_name
+      title.present? ? [title, authors].compact.join(' - ').force_encoding('UTF-8') : book_file_name
     else
-        upload_file_name
+        book_file_name
     end
   end
   

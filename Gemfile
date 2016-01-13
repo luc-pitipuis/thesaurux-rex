@@ -21,6 +21,7 @@ gem 'coffee-script-source', '1.8.0'
 
 # authentication
 gem 'devise'
+gem 'devise-bootstrap-views'
 
 # file upload
 gem 'paperclip'

@@ -1,8 +1,28 @@
 <%= form_for @post, url: posts_path, html: { multipart: true } do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-    <%= f.text_area :content, placeholder: "Add new book description" %>
-    <%= f.file_field :book %>
-  </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
+<div class="row">
+    <div class="col-md-7">
+        <div class="panel panel-default">
+            <div class="panel-heading"><strong>Share epub book</strong> <small> </small></div>
+            <div class="panel-body">
+            <%= f.text_area :content, placeholder: "Add new book description" %>
+            <div class="input-group image-preview">
+                    <input placeholder="" type="text" class="form-control image-preview-filename" disabled="disabled">
+                    <!-- don't give a name === doesn't send on POST/GET --> 
+                    <span class="input-group-btn"> 
+                    <!-- image-preview-clear button -->
+                    <button type="button" class="btn btn-default image-preview-clear" style="display:none;"> <span class="glyphicon glyphicon-remove"></span> Clear </button>
+                    <!-- image-preview-input -->
+                    <div class="btn btn-default image-preview-input"> <span class="glyphicon glyphicon-folder-open"></span> <span class="image-preview-input-title">Browse</span>
+                        <%= f.file_field :book %>
+                        <!-- rename it --> 
+                    </div>
+                    <input type="submit" name="commit" value="Post" class="btn btn-labeled btn-default">
+                    <button type="button" class="btn btn-labeled btn-default"> <span class="btn-label"><i class="glyphicon glyphicon-upload"></i> </span>Upload</button>
+                    </span> </div>
+            </div>
+        </div>
+    </div>
+ </div>
+      <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>
