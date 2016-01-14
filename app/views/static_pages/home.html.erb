@@ -4,8 +4,8 @@
       <div class="media">
   		<div class="media-body">
     		<h4 class="media-heading"><%= link_to post.display_name, post %></h4>
-          <p class="text-right">By <%= post.user.email %></p>
-          <p><%= post.content %></p>
+          <p class="text-right">By <%= link_to post.user.email, post.user %></p>
+          <p><%= raw(post.metadata.descriptions.map(&:content).join(", ")) %></p>
           <ul class="list-inline list-unstyled">
   			<li><span><i class="glyphicon glyphicon-calendar"></i> <%= time_ago_in_words(post.created_at) %> </span></li>
             <li>|</li>
