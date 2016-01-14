@@ -1,46 +1,21 @@
-<li class="media" id="post-<%= post.id %>">
-    <a href="#" class="pull-left">
-        <%= link_to post.id, post  %>
-        <span class="title"><%= post.display_name %></span>
-        <img src="assets/img/1.png" alt="" class="img-circle">
-    </a>
-    <div class="media-body">
-        <span class="text-muted pull-right">
-            <small class="text-muted"><%= time_ago_in_words(post.created_at) %> ago</small>
-        </span>
-        <strong class="text-success">@ <%= link_to post.user.email, post.user %></strong>
-        <p><%= post.content %></p>
-    </div>
-</li>
-
-<div class="row">
-    <div class="span3">
-
-        <!-- Our image goes here -->
-    </div>
-    <div class="span6">
-     <h2><%= post.metadata.title %></h2>
-     <h3>by <%= post.metadata.creators %></h3>
-     <% post.metadata.each do |t, a| %>
-        <h4><%= t %></h4><%= a %>
-        <% end %>
-Title:              Build Awesome Command-Line Applications in Ruby (for KITAITI MAKOTO)
-Identifiers:        978-1-934356-91-3
-Titles:             Build Awesome Command-Line Applications in Ruby (for KITAITI MAKOTO)
-Languages:          en
-Contributors:       
-Coverages:          
-Creators:           David Bryant Copeland
-Dates:              
-Descriptions:       
-Formats:            
-Publishers:         The Pragmatic Bookshelf, LLC (338304)
-Relations:          
-Rights:             Copyright © 2012 Pragmatic Programmers, LLC
-Sources:            
-Subjects:           Pragmatic Bookshelf
-Types:              
-Unique identifier:  978-1-934356-91-3
-Epub version:       2.0
+<div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+        <% if post.metadata.try(:identifiers) %>
+            <% post.metadata.try(:identifiers).each do |id| %>
+                <img src="http://covers.openlibrary.org/b/<%= id.scheme %>/<%=  id.content %>-S.jpg" />
+            <% end %> 
+        <% end %> 
+        <div class="caption">
+            <% if post.metadata.try(:title) %>
+                <h3><%= link_to post.metadata.title, post %></h3>
+            <% end %>
+            <p>by <%= post.metadata.creators.map(&:content).join(", ") %></p>
+            <p><%= link_to 'Download', post.book.url, :class => "btn btn-default"   %></p>
+        </div>
+        <div class="media-body">
+            <span class="text-muted pull-right">
+                <small class="text-muted"><%= time_ago_in_words(post.created_at) %> ago</small>
+            </span>
+        </div>
     </div>
 </div>

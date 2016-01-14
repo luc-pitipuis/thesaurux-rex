@@ -1,19 +1,29 @@
+<!--
 <div class="row">
-    <div class="span3">
-        <% @post.metadata.identifiers.each do |id| %>
-        <img src="http://covers.openlibrary.org/b/<%= id.scheme %>/<%=  id.content %>-S.jpg" />
-        <% end %> 
-    </div>
     <div class="span6">
         <h2><%= @post.metadata.title %></h2>
         <h3>by <%= @post.metadata.creators.map(&:content).join(", ") %></h3>
         <%= link_to 'Download', @post.book.url  %>
 
         <% @post.metadata.to_h.each do |t, a| %>
-        <% if a.present? %>
-        <h4><%= t %>: <%= a.map(&:content).join(", ")%></h4>
-        <% end %> 
-
+            <% if a.present? %>
+            <h4><%= t %>: <%= a.map(&:content).join(", ")%></h4>
+            <% end %> 
         <% end %>
     </div>
+</div>
+-->
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <% @post.metadata.identifiers.each do |id| %>
+        <img src="http://covers.openlibrary.org/b/<%= id.scheme %>/<%=  id.content %>-S.jpg" />
+        <% end %> 
+      <div class="caption">
+        <h3><%= @post.metadata.title %></h3>
+        <p>by <%= @post.metadata.creators.map(&:content).join(", ") %></p>
+        <p><%= link_to 'Download', @post.book.url, :class => "btn btn-default"   %></p>
+      </div>
+    </div>
+  </div>
 </div>
