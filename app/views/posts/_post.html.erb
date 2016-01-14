@@ -12,3 +12,35 @@
         <p><%= post.content %></p>
     </div>
 </li>
+
+<div class="row">
+    <div class="span3">
+
+        <!-- Our image goes here -->
+    </div>
+    <div class="span6">
+     <h2><%= post.metadata.title %></h2>
+     <h3>by <%= post.metadata.creators %></h3>
+     <% post.metadata.each do |t, a| %>
+        <h4><%= t %></h4><%= a %>
+        <% end %>
+Title:              Build Awesome Command-Line Applications in Ruby (for KITAITI MAKOTO)
+Identifiers:        978-1-934356-91-3
+Titles:             Build Awesome Command-Line Applications in Ruby (for KITAITI MAKOTO)
+Languages:          en
+Contributors:       
+Coverages:          
+Creators:           David Bryant Copeland
+Dates:              
+Descriptions:       
+Formats:            
+Publishers:         The Pragmatic Bookshelf, LLC (338304)
+Relations:          
+Rights:             Copyright © 2012 Pragmatic Programmers, LLC
+Sources:            
+Subjects:           Pragmatic Bookshelf
+Types:              
+Unique identifier:  978-1-934356-91-3
+Epub version:       2.0
+    </div>
+</div>

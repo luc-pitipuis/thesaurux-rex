@@ -1,13 +1,19 @@
-<li class="media" id="post-<%= @post.id %>">
-    <a href="#" class="pull-left">
-        <%= link_to 'Download', @post.book.url  %>
-        <span class="title"><%= @post.display_name %></span>
-    </a>
-    <div class="media-body">
-        <span class="text-muted pull-right">
-            <small class="text-muted"><%= time_ago_in_words(@post.created_at) %> ago</small>
-        </span>
-        <strong class="text-success">@ <%= link_to @post.user.email, @post.user %></strong>
-        <p><%= @post.content %></p>
+<div class="row">
+    <div class="span3">
+        <% @post.metadata.identifiers.each do |id| %>
+        <img src="http://covers.openlibrary.org/b/<%= id.scheme %>/<%=  id.content %>-S.jpg" />
+        <% end %> 
     </div>
-</li>
+    <div class="span6">
+        <h2><%= @post.metadata.title %></h2>
+        <h3>by <%= @post.metadata.creators.map(&:content).join(", ") %></h3>
+        <%= link_to 'Download', @post.book.url  %>
+
+        <% @post.metadata.to_h.each do |t, a| %>
+        <% if a.present? %>
+        <h4><%= t %>: <%= a.map(&:content).join(", ")%></h4>
+        <% end %> 
+
+        <% end %>
+    </div>
+</div>
